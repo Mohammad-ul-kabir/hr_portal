@@ -98,6 +98,13 @@ function Login() {
           </button>
         </form>
 
+        <p className="mt-4 text-center">
+          Don’t have an account?{" "}
+          <Link to="/register" className="text-blue-600 hover:underline">
+            Register
+          </Link>
+        </p>
+
         <Link
           to="/"
           className="text-blue-600 hover:underline mt-6 block text-center"
