@@ -7,7 +7,10 @@ function Navbar() {
   const role = localStorage.getItem("role");
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("role");
+    localStorage.removeItem("email");
+
     navigate("/login");
   };
 

@@ -1,27 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function MyLeaves() {
-  const [leaves, setLeaves] = useState([]);
   const email = localStorage.getItem("email");
 
-  useEffect(() => {
+  const [leaves] = useState(() => {
     const storedLeaves = JSON.parse(localStorage.getItem("leaves")) || [];
-
-    const myLeaves = storedLeaves.filter(
-      (leave) => leave.employeeEmail === email
-    );
-
-    setLeaves(myLeaves);
-  }, [email]);
+    return storedLeaves.filter((leave) => leave.employeeEmail === email);
+  });
 
   return (
-    <div className="p-6">
+    <div className="min-h-screen flex flex-col items-center mt-6 bg-gray-50">
       <h2 className="text-xl font-bold mb-4">My Leave Requests</h2>
 
       {leaves.length === 0 && <p>No leave requests found</p>}
 
       {leaves.map((leave) => (
-        <div key={leave.id} className="border p-4 mb-3 rounded">
+        <div key={leave.id} className="border p-4 mb-3 rounded w-full max-w-md">
           <p>
             <b>From:</b> {leave.fromDate}
           </p>

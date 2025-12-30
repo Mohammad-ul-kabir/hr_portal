@@ -1,25 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function LeaveManagement() {
-  const [leaves, setLeaves] = useState([]);
-
-  useEffect(() => {
-    const storedLeaves = JSON.parse(localStorage.getItem("leaves")) || [];
-    setLeaves(storedLeaves);
-  }, []);
+  const [leaves, setLeaves] = useState(() => {
+    return JSON.parse(localStorage.getItem("leaves")) || [];
+  });
 
   const updateStatus = (id, status) => {
-    const updated = leaves.map((leave) =>
+    const updatedLeaves = leaves.map((leave) =>
       leave.id === id ? { ...leave, status } : leave
     );
 
-    setLeaves(updated);
-    localStorage.setItem("leaves", JSON.stringify(updated));
+    setLeaves(updatedLeaves);
+    localStorage.setItem("leaves", JSON.stringify(updatedLeaves));
   };
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">Leave Requests</h2>
+      <h2 className="text-xl font-bold mb-4">Leave Applications</h2>
 
       {leaves.length === 0 && <p>No leave requests</p>}
 
@@ -49,7 +46,6 @@ function LeaveManagement() {
               >
                 Approve
               </button>
-
               <button
                 onClick={() => updateStatus(leave.id, "Rejected")}
                 className="bg-red-600 text-white px-3 py-1 rounded"
