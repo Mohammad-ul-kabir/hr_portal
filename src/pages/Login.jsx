@@ -100,8 +100,8 @@ function Login() {
 
         <p className="mt-4 text-center">
           Don’t have an account?{" "}
-          <Link to="/register" className="text-blue-600 hover:underline">
-            Register
+          <Link to="/signup" className="text-blue-600 hover:underline">
+            Signup
           </Link>
         </p>
 

@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
+import EmployeeList from "./components/hr/EmployeeList";
 import Navbar from "./components/Navbar";
 import AddEmployee from "./pages/AddEmployee";
 import ApplyLeave from "./pages/ApplyLeave";
@@ -84,6 +85,14 @@ function App() {
           element={
             <ProtectedRoute allowedRole="Employee">
               <MyLeaves />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/employees"
+          element={
+            <ProtectedRoute allowedRole="HR">
+              <EmployeeList />
             </ProtectedRoute>
           }
         />

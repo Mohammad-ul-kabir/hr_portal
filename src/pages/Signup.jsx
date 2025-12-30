@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import employeesData from "../data/employees.json";
 
-function Register() {
+function Signup() {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [department, setDepartment] = useState("");
 
-  const handleRegister = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
 
     const storedEmployees =
@@ -38,7 +38,7 @@ function Register() {
           Employee Registration
         </h2>
 
-        <form onSubmit={handleRegister} className="space-y-4">
+        <form onSubmit={handleSignup} className="space-y-4">
           <input
             type="text"
             placeholder="Full Name"
@@ -67,7 +67,7 @@ function Register() {
           />
 
           <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-            Register
+            Signup
           </button>
         </form>
       </div>
@@ -75,4 +75,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Signup;
