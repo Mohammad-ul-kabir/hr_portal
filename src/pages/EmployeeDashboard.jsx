@@ -4,7 +4,7 @@ function EmployeeDashboard() {
   const email = localStorage.getItem("email");
 
   return (
-    <div className="p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
       <h1 className="text-2xl font-bold mb-4">Welcome, {email}</h1>
 
       <div className="space-x-4">

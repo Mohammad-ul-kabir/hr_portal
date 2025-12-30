@@ -31,7 +31,7 @@ function ApplyLeave() {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto">
+    <div className="min-h-screen flex flex-col items-center mt-6 bg-gray-50">
       <h2 className="text-xl font-bold mb-4">Apply Leave</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
